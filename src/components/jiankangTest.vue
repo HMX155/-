@@ -88,29 +88,29 @@ export default {
   data() {
     return {
       //维度
-      dimension: 35.22361, // 维度      //34.78694
-      dimension2: 34.78694, // 维度      //34.78694
-      dimension3: 34.78694, // 维度      //34.78694
+      dimension: 35.22361, // 维度
+      dimension2: 34.78694, // 维度
+      dimension3: 33.42916, // 维度
       /********************************************************** */
       //经度
-      longitude: 113.44776, // 经度     //113.63027
-      longitude2: 113.63027, // 经度     //113.63027
-      longitude3: 113.63027, // 经度     //113.63027
+      longitude: 113.44776, // 经度
+      longitude2: 113.63027, // 经度
+      longitude3: 113.59944, // 经度
       /********************************************************** */
       //省代码
-      province: 410000, //省代码   //410000
-      province2: 410000, //省代码   //410000
-      province3: 410000, //省代码   //410000
+      province: 410000, //省代码
+      province2: 410000, //省代码
+      province3: 410000, //省代码
       /********************************************************** */
       //市代码
-      city: 410800, //省代码    //410100
-      city2: 410100, //省代码    //410100
-      city3: 410100, //省代码    //410100
+      city: 410800, //省代码    
+      city2: 410100, //省代码   
+      city3: 411100, //省代码   
       /********************************************************** */
       //区县代码
-      country: 410821, // 区、县代码   //410105
-      country2: 410105, // 区、县代码   //410105
-      country3: 410105, // 区、县代码   //410105
+      country: 410821, // 区、县代码   
+      country2: 410105, // 区、县代码  
+      country3: 411121, // 区、县代码  
       /********************************************************** */
       //在哪里
       location: 1, // 1在家  2在校   3在外地实习    4其他
@@ -121,6 +121,7 @@ export default {
       //token
       token: "bce8f1ea-323d-43b7-becf-97f7c3f47bd0", //e47c03f1-b877-4c65-95ac-97fc4c4b39e8
       token2: "e47c03f1-b877-4c65-95ac-97fc4c4b39e8", //e47c03f1-b877-4c65-95ac-97fc4c4b39e8
+      token3: "f589c3e7-ff49-46fd-a368-76e8a37c9a41", //e47c03f1-b877-4c65-95ac-97fc4c4b39e8
 
       status: 0, //  没病就不用改
       temp: 0, //  没病就不用改
@@ -193,7 +194,7 @@ export default {
           appid: "1",
           guest:
             "b2w4YlB2N2ssMTE3OTcsaTU3NUFOV0YsMTYyNzgxNDI2MC45ODksTVVGZV82dlhMSXIwLGZjZDM2YmI3OTdiOWI3MGUwMGZmNmE4OGYxNDIxYjM2",
-          token: this.token2,
+          token: this.token3,
         },
         data: data,
       };
@@ -214,15 +215,16 @@ export default {
       } else {
         console.log("服务开启成功！", new Date());
         this.timer = setInterval(() => {
-          if (new Date().getHours() !== 1) {
+          if (new Date().getHours() === 1) {
             this.sendData();
             this.sendData2();
+            this.sendData3();
           } else {
             console.log(
               "主人~，时机还未到达，暂时还不能上报哟！小的会在凌晨1点钟为你上报"
             );
           }
-        }, 1000);
+        }, 3600000);
         //3600000
       }
     },
